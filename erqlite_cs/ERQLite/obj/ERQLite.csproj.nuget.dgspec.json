@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\roman\\Desktop\\ERQLite\\CSQLite\\ERQLite\\ERQLite.csproj": {}
+    "C:\\Users\\roman\\Desktop\\ERQLite\\ERQLite\\erqlite\\erqlite_cs\\ERQLite\\ERQLite.csproj": {}
   },
   "projects": {
-    "C:\\Users\\roman\\Desktop\\ERQLite\\CSQLite\\ERQLite\\ERQLite.csproj": {
+    "C:\\Users\\roman\\Desktop\\ERQLite\\ERQLite\\erqlite\\erqlite_cs\\ERQLite\\ERQLite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\roman\\Desktop\\ERQLite\\CSQLite\\ERQLite\\ERQLite.csproj",
+        "projectUniqueName": "C:\\Users\\roman\\Desktop\\ERQLite\\ERQLite\\erqlite\\erqlite_cs\\ERQLite\\ERQLite.csproj",
         "projectName": "ERQLite",
-        "projectPath": "C:\\Users\\roman\\Desktop\\ERQLite\\CSQLite\\ERQLite\\ERQLite.csproj",
+        "projectPath": "C:\\Users\\roman\\Desktop\\ERQLite\\ERQLite\\erqlite\\erqlite_cs\\ERQLite\\ERQLite.csproj",
         "packagesPath": "C:\\Users\\roman\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\roman\\Desktop\\ERQLite\\CSQLite\\ERQLite\\obj\\",
+        "outputPath": "C:\\Users\\roman\\Desktop\\ERQLite\\ERQLite\\erqlite\\erqlite_cs\\ERQLite\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
