@@ -10,3 +10,5 @@ scipy.stats.binom.pmf(x, n, p) # x = value of interest, n = number of trials, p 
 scipy.stats.norm.cdf(x, loc, scale) # loc = mean of the probability distribution, scale = standard dev
 
 scipy.stats.poisson.pmf (expected_value, probability)
+
+sns.regplot(x=x, y=y, line_kws={"color":"red","linewidth":1, "linestyle":"--"}) # Scatterplot + trendline
