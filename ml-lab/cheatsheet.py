@@ -12,3 +12,5 @@ scipy.stats.norm.cdf(x, loc, scale) # loc = mean of the probability distribution
 scipy.stats.poisson.pmf (expected_value, probability)
 
 sns.regplot(x=x, y=y, line_kws={"color":"red","linewidth":1, "linestyle":"--"}) # Scatterplot + trendline
+
+sns.scatterplot(x, y, hue = , palette = ) # Scatterplot. 'Hue' can be a variable.
