@@ -14,3 +14,9 @@ scipy.stats.poisson.pmf (expected_value, probability)
 sns.regplot(x=x, y=y, line_kws={"color":"red","linewidth":1, "linestyle":"--"}) # Scatterplot + trendline
 
 sns.scatterplot(x, y, hue = , palette = ) # Scatterplot. 'Hue' can be a variable.
+
+pd.merge(df1,df2, on="Name", how="SQL_join_type") # For example inner, outer, left, right
+
+pd.concat(df1,df2)
+
+pd.groupby()
