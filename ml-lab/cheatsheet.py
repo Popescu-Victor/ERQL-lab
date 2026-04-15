@@ -20,3 +20,9 @@ pd.merge(df1,df2, on="Name", how="SQL_join_type") # For example inner, outer, le
 pd.concat(df1,df2)
 
 pd.groupby()
+
+# Adding jitter to scatterplot
+jitter = 0.05
+df["x_j"] = df["x"] + np.random.randn(len(df)) * jitter
+df["y_j"] = df["y"] + np.random.randn(len(df)) * jitter
+plt.scatter(df["x_j"], df["y_j"])
