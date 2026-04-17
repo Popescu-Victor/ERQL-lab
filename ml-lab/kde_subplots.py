@@ -65,3 +65,29 @@ for j in range(i+1, len(axes)):
 
 plt.tight_layout()
 plt.show()
+
+
+# Subplots with correlation to a single central column
+
+import math
+
+target_col = 'Success'
+other_cols = [col for col in df.select_dtypes(include='number').columns if col != target_col]
+
+n = len(other_cols)
+ncols = 3
+nrows = math.ceil(n / ncols)
+
+fig, axes = plt.subplots(nrows=nrows, ncols=ncols, figsize=(5*ncols, 4*nrows))
+axes = axes.flatten()
+
+for i, col in enumerate(other_cols):
+    sns.regplot(x=col, y=target_col, data=df, ax=axes[i])
+    axes[i].set_title(f'{col} vs {target_col}')
+
+# Hide any unused subplots
+for j in range(i+1, len(axes)):
+    axes[j].set_visible(False)
+
+plt.tight_layout()
+plt.show()
