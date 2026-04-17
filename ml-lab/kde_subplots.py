@@ -40,3 +40,28 @@ for j in range(i+1, len(axes)):
 
 plt.tight_layout()
 plt.show()
+
+
+# And with mode:
+
+num_cols = df.select_dtypes(include='number').columns
+n = len(num_cols)
+ncols = 3
+nrows = math.ceil(n / ncols)
+
+fig, axes = plt.subplots(nrows=nrows, ncols=ncols, figsize=(4*ncols, 2*nrows))
+axes = axes.flatten()
+
+for i, col in enumerate(num_cols):
+    sns.kdeplot(df[col], fill=True, ax=axes[i])
+    axes[i].axvline(df[col].median(), color='red', linestyle='--', linewidth=1.5, label=f'Median: {df[col].median():.2f}')
+    axes[i].axvline(df[col].mode()[0], color='green', linestyle='--', linewidth=1.5, label=f'Mode: {df[col].mode()[0]:.2f}')
+    axes[i].set_title(col)
+    axes[i].legend()
+
+# Hide any unused subplots
+for j in range(i+1, len(axes)):
+    axes[j].set_visible(False)
+
+plt.tight_layout()
+plt.show()
