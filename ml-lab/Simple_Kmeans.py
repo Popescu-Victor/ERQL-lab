@@ -20,3 +20,10 @@ plt.scatter(kmeans.cluster_centers_[:, 0],
             s=200, c='red', marker='*')
 
 plt.show()
+
+
+# The part that matter:
+kmeans = KMeans(n_clusters=2, random_state=42) # Pick number of clusters and rangen seed
+kmeans.fit(df) # Fit to dataframe
+df['cluster'] = kmeans.labels_ # Create extra column (or variable) to store clustered data
+plt.scatter(df["Var1"], df["Var1"], c=df['cluster']) # Three sets of data to be plotted, clusters as the third
