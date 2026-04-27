@@ -7,10 +7,6 @@ def generate_inverse_correlation(
     correlation: float = -0.8,
     seed: int = 42
 ) -> tuple[np.ndarray, np.ndarray]:
-    """
-    correlation should be between -1 and 0 for inverse correlation.
-    -0.8 is a strong inverse, -0.3 is a weak one.
-    """
     rng = np.random.default_rng(seed=seed)
     
     cov = correlation * std_x * std_y
@@ -27,14 +23,14 @@ def generate_inverse_correlation(
     
     return x, y
 
-
+std_dev = 10
 
 import matplotlib.pyplot as plt
 
 
-x, y = generate_inverse_correlation(
-        mean_x=50, std_x=10,
-        mean_y=50, std_y=10,
+c, d = generate_inverse_correlation(
+        mean_x=40, std_x=std_dev,
+        mean_y=40, std_y=std_dev,
         size=100,
         correlation=-0.8
 )
@@ -42,15 +38,32 @@ x, y = generate_inverse_correlation(
 
 
 a, b = generate_inverse_correlation(
-        mean_x=35, std_x=12,
-        mean_y=35, std_y=12,
+        mean_x=30, std_x=std_dev,
+        mean_y=30, std_y=std_dev,
         size=100,
         correlation=-0.7
 )
 
-plt.scatter(x, y, alpha=0.5, color='steelblue', label='XY')
-plt.scatter(a, b, alpha=0.5, color='coral', label='AB')
-plt.xlabel("X")
-plt.ylabel("Y")
-plt.title(f"Correlation: {np.corrcoef(x, y)[0, 1]:.2f}")
+
+e, f = generate_inverse_correlation(
+        mean_x=20, std_x=std_dev,
+        mean_y=20, std_y=std_dev,
+        size=100,
+        correlation=-0.7
+)
+
+g, h = generate_inverse_correlation(
+        mean_x=10, std_x=std_dev,
+        mean_y=10, std_y=std_dev,
+        size=100,
+        correlation=-0.7
+)
+
+
+
+plt.scatter(a, b, alpha=0.5, color='grey')
+plt.scatter(c, d, alpha=0.5, color='steelblue')
+plt.scatter(e, f, alpha=0.5, color='coral')
+plt.scatter(g, h, alpha=0.5, color='lightgreen')
+plt.legend()
 plt.show()
