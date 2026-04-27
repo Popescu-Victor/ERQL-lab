@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import pandas as pd
 
 
 def generate_inverse_correlation(
@@ -66,7 +67,14 @@ def third_col(col, data):
     return df
 
 
-print(np.column_stack([a, b, third_col(a, 1)]))
+df_ab = np.column_stack([a, b, third_col(a, 1)])
+df_cd = np.column_stack([c, d, third_col(c, 2)])
+df_ef = np.column_stack([e, f, third_col(e, 3)])
+df_gh = np.column_stack([g, h, third_col(g, 4)])
+
+full_data_frame = np.vstack([df_ab, df_cd, df_ef, df_gh])
+print(full_data_frame)
+pd.DataFrame(full_data_frame).to_csv('filename.csv', index=False)
 
 plt.scatter(a, b, alpha=0.5, color='steelblue')
 plt.scatter(c, d, alpha=0.5, color='steelblue')
