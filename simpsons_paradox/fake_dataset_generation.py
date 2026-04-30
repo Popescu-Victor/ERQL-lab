@@ -74,7 +74,7 @@ df_gh = np.column_stack([g, h, third_col(g, 4)])
 
 full_data_frame = np.vstack([df_ab, df_cd, df_ef, df_gh])
 print(full_data_frame)
-pd.DataFrame(full_data_frame).to_csv('filename.csv', index=False)
+pd.DataFrame(full_data_frame).to_csv('dataset.csv', index=False)
 
 plt.scatter(a, b, alpha=0.5, color='steelblue')
 plt.scatter(c, d, alpha=0.5, color='steelblue')
