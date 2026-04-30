@@ -3,8 +3,15 @@ import pandas as pd
 import scipy
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
-import modin
-import tensorflow as tf
+
+
+# Pandas 
+df.drop(columns=['Name'])
+
+df.drop(index=[0, 1, 2])
+
+
+# Scipy
 
 scipy.stats.binom.pmf(x, n, p) # x = value of interest, n = number of trials, p = possibility of success
 
