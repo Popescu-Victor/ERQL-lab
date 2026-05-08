@@ -5,11 +5,12 @@ from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 
 
-# Pandas 
+# Pandas & Numpy
 df.drop(columns=['Name'])
 
 df.drop(index=[0, 1, 2])
 
+df['AgeGroup'] = np.where(df['age'] > 30, 'Old', 'Young') # np.where(condition, value_if_true, value_if_false)
 
 # Scipy
 
