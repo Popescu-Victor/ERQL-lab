@@ -12,6 +12,9 @@ df.drop(index=[0, 1, 2])
 
 df['AgeGroup'] = np.where(df['age'] > 30, 'Old', 'Young') # np.where(condition, value_if_true, value_if_false)
 
+pd.set_option('display.float_format', '{:.4f}'.format)
+num.corr().iloc[:, 1].sort_values(ascending=False)
+
 # Scipy
 
 scipy.stats.binom.pmf(x, n, p) # x = value of interest, n = number of trials, p = possibility of success
