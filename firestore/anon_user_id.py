@@ -32,11 +32,18 @@ for filename in os.listdir(folder_path):
                         if anon_user_id not in user_list:
                             user_list.append(anon_user_id)
 
+id_dict = {}
+
 print("Unique Anonymous User IDs:")
 for user_id in user_list:
     new_id = username_to_anon_id(user_id)
     first_last_name = user_id.split(", ")
     if len(first_last_name) == 2:
-        print(first_last_name[1] + " " + first_last_name[0] + "  -->  " + str(new_id))
+        # print(first_last_name[1] + " " + first_last_name[0] + "  -->  " + str(new_id))
+        id_dict[user_id] = new_id
     else:
-        print(user_id + "  -->  " + str(new_id))
+        # print(user_id + "  -->  " + str(new_id))
+        id_dict[user_id] = new_id
+
+print(id_dict)
+# db.collection("ANON_ID").document("QoC1bZaqHZk13gQnhUF8 ").set(id_dict, merge=True)
