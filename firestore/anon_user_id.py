@@ -11,6 +11,10 @@ folder_path = os.getenv("FOLDER")
 
 user_list = []
 
+def username_to_anon_id(username):
+    anon_id = (str(username)[:2] + str(username)[-2:] + str(len(username))).upper()
+    return anon_id
+
 
 for filename in os.listdir(folder_path):
 
@@ -30,4 +34,9 @@ for filename in os.listdir(folder_path):
 
 print("Unique Anonymous User IDs:")
 for user_id in user_list:
-    print(user_id)
+    new_id = username_to_anon_id(user_id)
+    first_last_name = user_id.split(", ")
+    if len(first_last_name) == 2:
+        print(first_last_name[1] + " " + first_last_name[0] + "  -->  " + str(new_id))
+    else:
+        print(user_id + "  -->  " + str(new_id))
