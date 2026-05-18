@@ -10,14 +10,14 @@ load_dotenv()
 folder_path = os.getenv("FOLDER")
 
 for filename in os.listdir(folder_path):
+
     if filename.endswith(".xlsx") and not filename.startswith("~$"): # and not filename.startswith("~$") - This part skips temp files in folder created by opening excel files
         filepath = os.path.join(folder_path, filename)
         
-        wb = openpyxl.load_workbook(filepath)
-        ws = wb.active
-                
-        for row in ws.iter_rows(values_only=True):
-            for col_index, cell in enumerate(row):
-                if cell == "Test Passes for Participant: ":
-                    print(f"Found in column index {col_index}")
-                    break
+        df = pd.read_excel(filepath)
+
+        for col in df.columns:
+            if df[col].astype(str).str.contains("Test Passes", na=False).any():
+                column_index = df.columns.get_loc(col)
+                print(f"Found column index: {column_index}")
+                break
