@@ -1,3 +1,6 @@
+# Alternative to storing creds/tokens in .env files. Useful when passing the code around various different devices.
+
+
 from tkinter import filedialog
 import firebase_admin
 from firebase_admin import credentials, firestore
