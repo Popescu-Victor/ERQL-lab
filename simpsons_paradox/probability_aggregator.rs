@@ -1,3 +1,6 @@
+//! This file is fully vibe coded for the sake of study. I did not write this, I only intend to use it to learn how I'd write something similar in Rust myself.
+
+
 //! prob_aggregator
 //!
 //! Combines multiple probability estimates into a single consensus using
