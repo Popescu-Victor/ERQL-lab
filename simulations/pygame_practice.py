@@ -18,6 +18,7 @@ import sys
 from dataclasses import dataclass, field
 
 # ── Configuration ─────────────────────────────────────────────────────────────
+# All of these are color or geometry parameters that you can tweak to change the simulation's behavior and appearance.
 
 COLS, ROWS = 22, 15
 CELL = 36
@@ -83,7 +84,7 @@ def tile_color(col: int, row: int) -> tuple:
 
 # ── Agent ─────────────────────────────────────────────────────────────────────
 
-@dataclass
+@dataclass # Using dataclass for convenience in defining the Agent class, which represents each individual in the simulation with their properties and behaviors.
 class Agent:
     id: int
     col: int
@@ -94,15 +95,15 @@ class Agent:
     history: list = field(default_factory=list)   # wealth history
 
     def color(self) -> tuple:
-        if self.wealth < 0:  return AGENT_CRIT
+        if self.wealth < 0:  return AGENT_CRIT # These three possible return values are defined in the configuration section at the top, and determine the color of the agent based on their current wealth.
         if self.wealth < 5:  return AGENT_MID
         return AGENT_WELL
 
     def choose_move(self) -> tuple:
         """Greedy: prefer tiles in the hot zone; add noise so they spread."""
-        best_score = -1e9
+        best_score = -1e9 # Start with a very low score to ensure any valid move will be better. The agent will evaluate all adjacent tiles (including diagonals) and calculate a score for each based on whether it's in the high-yield zone and some random noise to encourage exploration. The move with the highest score will be chosen.
         best = (self.col, self.row)
-        for dc in (-1, 0, 1):
+        for dc in (-1, 0, 1): # Loop through the possible column offsets (-1, 0, 1) to check the current tile and its immediate neighbors.
             for dr in (-1, 0, 1):
                 nc = max(0, min(COLS - 1, self.col + dc))
                 nr = max(0, min(ROWS - 1, self.row + dr))
