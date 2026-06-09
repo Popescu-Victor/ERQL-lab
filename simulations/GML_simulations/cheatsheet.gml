@@ -23,3 +23,23 @@ draw_set_color(c_black);
 draw_text(110, 210, "A");
 draw_text(170, 210, "B");
 draw_text(230, 210, "C");
+
+// Detect colors:
+// In Step event
+var pixel_color = draw_getpixel(x, y);
+
+if (pixel_color == c_red)
+{
+    // do something, e.g. take damage
+    hp -= 1;
+}
+else if (pixel_color == c_blue)
+{
+    // do something else, e.g. slow down
+    speed = 1;
+}
+else if (pixel_color == c_green)
+{
+    // e.g. heal
+    hp += 1;
+}
