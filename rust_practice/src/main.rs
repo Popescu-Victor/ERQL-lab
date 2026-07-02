@@ -1,24 +1,27 @@
-use rfd::FileDialog;
+use std::io::{self, Write};
 
-fn open_file() -> Option<String> {
-    let file = FileDialog::new()
-        .add_filter("CSV files", &["csv"])
-        .set_title("Select a CSV file")
-        .pick_file();
-
-    match file {
-        Some(path) => Some(path.display().to_string()),
-        None => {
-            println!("No file selected");
-            None
-        }
-} }
+mod scripts;
 
 fn main() {
-    let selected_file = open_file();
+    loop {
+        print!(">> ");
+        io::stdout().flush().unwrap();
 
-    match selected_file {
-        Some(path) => println!("Selected file: {}", path),
-        None => println!("Exiting, no file was chosen."),
+        let mut input = String::new();
+        io::stdin().read_line(&mut input).unwrap();
+
+        let command = input.trim();
+
+        match command {
+            "plot" => scripts::plot(),
+            "analyze" => scripts::analyze(),
+            "convert" => scripts::convert(),
+            "exit" | "quit" => {
+                println!("Goodbye!");
+                break;
+            }
+            "" => {}
+            _ => println!("Unknown command. Type 'help'."),
+        }
     }
 }
