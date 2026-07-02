@@ -1,3 +1,5 @@
 fn main() {
-    println!("Cargo init has been completed successfully!");
+    for i in 0..5 {
+    println!("{}", i);
+};
 }
