@@ -4,6 +4,7 @@ import pandas as pd
 import openpyxl
 from dotenv import load_dotenv
 import os
+# Scraped data (.csv) --> Dataframe --> firestore nosql database
 
 
 load_dotenv()
