@@ -1,4 +1,0 @@
-.env
-.venv
-/target
-Cargo.lock 
