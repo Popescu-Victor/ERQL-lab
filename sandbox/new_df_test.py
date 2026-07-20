@@ -36,6 +36,7 @@ while True:
                 dataframe = pickle.load(f)
         except FileNotFoundError:
             print(f"File '{filename}' not found. Please check the filename and try again.")
+            
     else:
         new_row = []
         for col in dataframe.columns:
