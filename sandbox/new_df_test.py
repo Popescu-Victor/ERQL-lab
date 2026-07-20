@@ -20,6 +20,10 @@ while True:
         break
     if user_input.lower() == "print":
         print(dataframe)
+    if user_input.lower() == "save":
+        filename = input("Enter filename to save the dataframe (with .pkl extension): ")
+        with open(filename, 'wb') as f:
+            pickle.dump(dataframe, f)
     else:
         new_row = []
         for col in dataframe.columns:
