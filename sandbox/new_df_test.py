@@ -14,11 +14,12 @@ def new_df():
 dataframe = new_df()
 
 while True:
-    print(dataframe)
     user_input = input("> ")
     if user_input.lower() == "exit":
         print("Exiting the program.")
         break
+    if user_input.lower() == "print":
+        print(dataframe)
     else:
         new_row = []
         for col in dataframe.columns:
