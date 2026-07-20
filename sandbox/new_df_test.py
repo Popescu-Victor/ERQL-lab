@@ -11,19 +11,31 @@ def new_df():
         col_names.append(col_name)
     return pd.DataFrame(columns=col_names)
 
-dataframe = new_df()
 
 while True:
     user_input = input("> ")
     if user_input.lower() == "exit":
         print("Exiting the program.")
         break
+
+    if user_input.lower() == "new":
+        dataframe = new_df()
+
     if user_input.lower() == "print":
         print(dataframe)
+
     if user_input.lower() == "save":
         filename = input("Enter filename to save the dataframe (with .pkl extension): ")
         with open(filename, 'wb') as f:
             pickle.dump(dataframe, f)
+
+    if user_input.lower() == "load":
+        filename = input("Enter filename to load the dataframe (with .pkl extension): ")
+        try:
+            with open(filename, 'rb') as f:
+                dataframe = pickle.load(f)
+        except FileNotFoundError:
+            print(f"File '{filename}' not found. Please check the filename and try again.")
     else:
         new_row = []
         for col in dataframe.columns:
