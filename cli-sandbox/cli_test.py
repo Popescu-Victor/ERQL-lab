@@ -24,8 +24,14 @@ def str_finder(folder_path, target_string):
                 if target_string in file.read():
                     print(f"Found '{target_string}' in {i}")
 
-def     args = parser.parse_args()
+def grepper(folder_path, target_string):
+    for file in os.listdir(folder_path):
+        result = subprocess.run(['powershell', '-Command', 'Get-Process' , target_string, os.path.join(folder_path, file)], capture_output=True, text=True)
+    print result.stdout
+
+def main():
+    args = parser.parse_args()
     pass
 
-if name == "__main__":
+if __name__ == "__main__":
     main()
