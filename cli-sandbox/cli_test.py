@@ -1,9 +1,17 @@
 import argparse
+from os import name
+import selenium
+import dotenv
 
 parser = argparse.ArgumentParser(description="My CLI tool")
-parser.add_argument("filename", help="File to process")
-parser.add_argument("-v", "--verbose", action="store_true", help="Enable verbose output")
-parser.add_argument("-o", "--output", default="out.txt", help="Output file")
+parser.add_argument("login", help="Storing encrypted login credentials locally.")
 
-args = parser.parse_args()
-print(args.filename, args.verbose, args.output)
+def login_to_env():
+    # Implement the logic to log in to the environment using Selenium
+    pass
+
+def main():
+    pass
+
+if name == "__main__":
+    main()
