@@ -17,11 +17,14 @@ if ($continue -ne "Y") {
     Write-Output "Exiting script."
     exit
 } else {
+    $process_time = Get-Date -Format "yyyy-MM-dd_HH-mm-ss"
+    New-Item -Path "$PSScriptRoot\Rendered File at $process_time.txt" -ItemType File -Force
     Write-Output "Processing CSV file..."
     $data = Import-Csv -Path $csvPath
     ($data | Get-Member -MemberType NoteProperty).Name
     $target_column = Read-Host "Enter the name of the column to extract"
     foreach ($row in $data) {
-        Write-Output $row.$target_column
+        Write-Output $row.$target_column | Out-File -Append -FilePath "$PSScriptRoot\Rendered File at $process_time.txt"
     }
+
 }
