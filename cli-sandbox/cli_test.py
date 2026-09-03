@@ -27,7 +27,7 @@ def str_finder(folder_path, target_string):
 def grepper(folder_path, target_string):
     for file in os.listdir(folder_path):
         result = subprocess.run(['powershell', '-Command', 'Get-Process' , target_string, os.path.join(folder_path, file)], capture_output=True, text=True)
-    print result.stdout
+    print(result.stdout)
 
 def main():
     args = parser.parse_args()
