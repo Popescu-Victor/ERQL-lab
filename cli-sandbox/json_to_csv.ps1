@@ -1,0 +1,1 @@
+Get-Content data.json | ConvertFrom-Json | Export-Csv -Path output.csv -NoTypeInformation
