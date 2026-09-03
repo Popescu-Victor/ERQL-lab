@@ -1,4 +1,5 @@
 $csvPath = Read-Host -Prompt "Enter path to CSV file (Tab to autocomplete)"
+$csvPath = $csvPath -replace '"', '' # When using 'copy as path' in Windows Explorer, the path is wrapped in double quotes. Remove them.
 
 $data = Import-Csv -Path $csvPath
 
